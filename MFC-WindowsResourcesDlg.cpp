@@ -20,7 +20,8 @@
 CMFCWindowsResourcesDlg::CMFCWindowsResourcesDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_MFCWINDOWSRESOURCES_DIALOG, pParent)
 {
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	// 생성한 Icon ID로 설정하여, 아이콘을 변경하여 실행
+	m_hIcon = AfxGetApp()->LoadIcon(IDR_MYICON);
 }
 
 void CMFCWindowsResourcesDlg::DoDataExchange(CDataExchange* pDX)
