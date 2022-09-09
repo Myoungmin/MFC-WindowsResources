@@ -46,7 +46,16 @@ BOOL CMFCWindowsResourcesDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
-	ShowWindow(SW_MINIMIZE);
+	// 툴바 생성
+	if (!m_wndToolBar.Create(this) || !m_wndToolBar.LoadToolBar(IDR_TOOLBAR1))
+	{
+		TRACE0("Failed to Create Dialog Toolbar\n");
+		EndDialog(IDCANCEL);
+	}
+
+	// Now we REALLY Redraw the Toolbar
+	RepositionBars(AFX_IDW_CONTROLBAR_FIRST, AFX_IDW_CONTROLBAR_LAST, 0);
+
 
 	// TODO: Add extra initialization here
 

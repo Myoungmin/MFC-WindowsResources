@@ -6,8 +6,9 @@
 #define IDR_MAINFRAME                   128
 #define IDI_ICON1                       129
 #define IDR_MYICON                      129
-#define IDR_MENU1                       130
 #define IDM_MAINMENU                    130
+#define IDR_TOOLBAR1                    132
+#define IDT_NEW                         132
 #define ID_FILE_NEW32771                32771
 #define ID_FILE_OPEN32772               32772
 #define ID_FILE_SAVE32773               32773
@@ -17,7 +18,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        131
+#define _APS_NEXT_RESOURCE_VALUE        134
 #define _APS_NEXT_COMMAND_VALUE         32775
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           101

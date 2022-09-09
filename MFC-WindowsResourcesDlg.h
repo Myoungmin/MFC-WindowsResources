@@ -24,6 +24,7 @@ public:
 // Implementation
 protected:
 	HICON m_hIcon;
+	CToolBar m_wndToolBar;
 
 	// Generated message map functions
 	virtual BOOL OnInitDialog();
