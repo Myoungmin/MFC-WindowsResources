@@ -32,6 +32,7 @@ void CMFCWindowsResourcesDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CMFCWindowsResourcesDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_COMMAND(ID_FILE_NEW32771, &CMFCWindowsResourcesDlg::OnFileNew)
 END_MESSAGE_MAP()
 
 
@@ -98,3 +99,10 @@ HCURSOR CMFCWindowsResourcesDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CMFCWindowsResourcesDlg::OnFileNew()
+{
+	// TODO: Add your command handler code here
+	MessageBox(L"File > New menu option");
+}
