@@ -50,6 +50,9 @@ BOOL CMFCWindowsResourcesApp::InitInstance()
 	InitCtrls.dwICC = ICC_WIN95_CLASSES;
 	InitCommonControlsEx(&InitCtrls);
 
+	m_hAccelTable = LoadAccelerators(AfxGetInstanceHandle(),
+		MAKEINTRESOURCE(IDR_ACCELERATOR1));
+
 	CWinApp::InitInstance();
 
 
@@ -103,5 +106,14 @@ BOOL CMFCWindowsResourcesApp::InitInstance()
 	// Since the dialog has been closed, return FALSE so that we exit the
 	//  application, rather than start the application's message pump.
 	return FALSE;
+}
+
+BOOL CMFCWindowsResourcesApp::ProcessMessageFilter(int code, LPMSG lpMsg)
+{
+	if (code >= 0 && m_pMainWnd && m_hAccelTable) {
+		if (::TranslateAccelerator(m_pMainWnd->m_hWnd, m_hAccelTable, lpMsg))
+			return TRUE;
+	}
+	return CWinApp::ProcessMessageFilter(code, lpMsg);
 }
 
