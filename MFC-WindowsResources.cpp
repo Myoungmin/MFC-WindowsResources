@@ -6,6 +6,7 @@
 #include "framework.h"
 #include "MFC-WindowsResources.h"
 #include "MFC-WindowsResourcesDlg.h"
+#include "CDlgDrawTest.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -74,7 +75,7 @@ BOOL CMFCWindowsResourcesApp::InitInstance()
 	// such as the name of your company or organization
 	SetRegistryKey(_T("Local AppWizard-Generated Applications"));
 
-	CMFCWindowsResourcesDlg dlg;
+	CDlgDrawTest dlg;
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)

@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CDlgDrawTest.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MFC-WindowsResources.h" />
     <ClInclude Include="MFC-WindowsResourcesDlg.h" />
@@ -191,6 +192,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CDlgDrawTest.cpp" />
     <ClCompile Include="MFC-WindowsResources.cpp" />
     <ClCompile Include="MFC-WindowsResourcesDlg.cpp" />
     <ClCompile Include="pch.cpp">
