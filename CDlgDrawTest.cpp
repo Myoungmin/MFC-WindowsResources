@@ -39,9 +39,15 @@ void CDlgDrawTest::OnPaint()
 {
 	CPaintDC dc(this); // device context for painting
 	
+	//DrawRedRectangle();
+	DrawBitmap();
+}
+
+void CDlgDrawTest::DrawRedRectangle()
+{
 	CRect rect;
 	GetDlgItem(IDC_PICTURE_CONTROL)->GetClientRect(&rect);
-	
+
 	// Transform the rectangle coordinates to client coordinates relative to the parent window
 	//ClientToScreen(&rect);
 	//GetDlgItem(IDC_PICTURE_CONTROL)->GetParent()->ScreenToClient(&rect);
@@ -56,4 +62,29 @@ void CDlgDrawTest::OnPaint()
 	CPen* pOldPen = pDC->SelectObject(&pen);
 	pDC->Rectangle(rect);
 	pDC->SelectObject(pOldPen);
+}
+
+void CDlgDrawTest::DrawBitmap()
+{
+	CBitmap bitmap;
+	bitmap.LoadBitmapW(IDB_BITMAP1);
+	BITMAP bmpinfo;
+	bitmap.GetBitmap(&bmpinfo);
+
+	CDC* pDC = GetDlgItem(IDC_PICTURE_CONTROL)->GetWindowDC();
+	
+	CDC dcmem;
+	dcmem.CreateCompatibleDC(pDC);
+	dcmem.SelectObject(&bitmap);
+
+	// 대상에 크기 조정 안하는 것
+	//pDC->BitBlt(10, 10, bmpinfo.bmWidth, bmpinfo.bmHeight, &dcmem, 0, 0, SRCCOPY);
+
+	CRect rect;
+	GetDlgItem(IDC_PICTURE_CONTROL)->GetClientRect(&rect);
+	pDC->StretchBlt(0, 0, rect.Width(), rect.Height(), &dcmem, 0, 0, bmpinfo.bmWidth,bmpinfo.bmHeight, SRCCOPY);
+
+	// 아래와 같이 하면 안된다.
+	//pDC->SelectObject(&bitmap);
+	//pDC->StretchBlt(0, 0, rect.Width(), rect.Height(), pDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
 }
